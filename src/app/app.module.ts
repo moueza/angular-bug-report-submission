@@ -4,6 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {  DynamicTitleStrategyService  } from  './dynamic-title-strategy.service';
+
+import {  TitleStrategy } from '@angular/router';
+
+
 
 @NgModule({
   declarations: [
@@ -15,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: TitleStrategy, useClass: DynamicTitleStrategyService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
